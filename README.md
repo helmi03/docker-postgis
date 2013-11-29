@@ -44,6 +44,6 @@ Build width docker version `0.7.0`
 
 ## References
 
-- Docker index: [helmi03/postgis](https://index.docker.io/u/helmi03/postgis/)
+- Docker trusted build: [helmi03/docker-postgis](https://index.docker.io/u/helmi03/docker-postgis/)
 - [stigi/dockerfile-postgresql](https://github.com/stigi/dockerfile-postgresql)
 - [Docker PostgreSQL Service](http://docs.docker.io/en/latest/examples/postgresql_service/)
