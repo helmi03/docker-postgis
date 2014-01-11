@@ -50,7 +50,7 @@ RUN  dpkg -i postgresql-9.3-pgrouting_2.0.0-2_amd64.deb
 
 RUN echo "host    all             all             0.0.0.0/0               trust >> /etc/postgresql/9.3/main/pg_hba.conf
 RUN  service postgresql restart
-RUN createdb yonder_trail -U postgres -0 postgres
+RUN createdb yonder_trail -U postgres -O postgres
 RUN psql -U postgres -d yonder_trail -c 'create extension postgis;'
 RUN psql -U postgres -d yonder_trail -c 'create extension pgrouting;'
 RUN psql -U postgres -d yonder_trail -c 'create extension hstore;'
