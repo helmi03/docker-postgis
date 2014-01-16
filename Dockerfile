@@ -1,5 +1,5 @@
 FROM ubuntu:12.04
-MAINTAINER Helmi <helmi@tuxuri.com>
+MAINTAINER daveism <daveism@gmail.com>
 
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 RUN apt-get -y update
@@ -9,6 +9,18 @@ RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" >> /et
 RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt-get -y install postgresql-9.3 postgresql-contrib-9.3 postgresql-9.3-postgis-2.1 postgis
+
+RUN wget http://http.us.debian.org/debian/pool/main/e/eglibc/libc6_2.17-97_i386.deb
+RUN  dpkg -i libc6_2.17-97_i386.deb
+
+RUN wget http://http.us.debian.org/debian/pool/main/g/gcc-4.8/gcc-4.8-base_4.8.2-14_i386.deb
+RUN dpkg -i gcc-4.8-base_4.8.2-14_i386.deb
+
+RUN wget http://http.us.debian.org/debian/pool/main/g/gcc-4.8/libgcc1_4.8.2-14_i386.deb
+RUN dpkg -i libgcc1_4.8.2-14_i386.deb
+
+RUN wget http://http.us.debian.org/debian/pool/main/g/gcc-4.8/libstdc++6_4.8.2-14_i386.deb
+RUN dpkg -i libstdc++6_4.8.2-14_i386.deb
 
 
 RUN wget http://http.us.debian.org/debian/pool/main/b/boost1.54/libboost-system1.54.0_1.54.0-4_i386.deb
@@ -47,6 +59,8 @@ RUN  dpkg -i libcgal10_4.2-5+b2_i386.deb
 
 RUN wget http://http.us.debian.org/debian/pool/main/p/pgrouting/postgresql-9.3-pgrouting_2.0.0-2_i386.deb
 RUN  dpkg -i postgresql-9.3-pgrouting_2.0.0-2_amd64.deb
+
+
 
 RUN echo "host    all             all             0.0.0.0/0               trust >> /etc/postgresql/9.3/main/pg_hba.conf
 RUN service postgresql restart
