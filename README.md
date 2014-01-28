@@ -39,7 +39,7 @@ If you copy existing postgresql data, you need to set permission properly (chown
 
 ## Meta
 
-Build width docker version `0.7.0`
+Build with docker version `0.7.0`
 
 
 ## References
