@@ -17,8 +17,9 @@ RUN echo "host    all             all             0.0.0.0/0               md5" >
 RUN service postgresql start &&\
      /bin/su postgres -c "createuser -d -s -r -l docker" &&\
     /bin/su postgres -c "psql postgres -c \"ALTER USER docker WITH ENCRYPTED PASSWORD 'docker'\"" &&\
-    /bin/su postgres -c "CREATE EXTENSION postgis; CREATE EXTENSION postgis_topology; CREATE EXTENSION fuzzystrmatch; CREATE EXTENSION postgis_tiger_geocoder;" &&\
+    /bin/su postgres -c "psql -U postgres -c \"CREATE EXTENSION postgis; CREATE EXTENSION postgis_topology; CREATE EXTENSION fuzzystrmatch; CREATE EXTENSION postgis_tiger_geocoder;\"" &&\    
     service postgresql stop
+
 RUN echo "listen_addresses = '*'" >> /etc/postgresql/9.3/main/postgresql.conf
 RUN echo "port = 5432" >> /etc/postgresql/9.3/main/postgresql.conf
 
