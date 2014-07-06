@@ -22,10 +22,6 @@ RUN service postgresql start &&\
 RUN echo "listen_addresses = '*'" >> /etc/postgresql/9.3/main/postgresql.conf
 RUN echo "port = 5432" >> /etc/postgresql/9.3/main/postgresql.conf
 
-# Enable the PostGIS on the app database
-  RUN service postgresql start  &&\
-      psql -d docker --command "CREATE EXTENSION postgis; CREATE EXTENSION postgis_topology; CREATE EXTENSION fuzzystrmatch; CREATE EXTENSION postgis_tiger_geocoder;"
-
 EXPOSE 5432
 
 ADD start.sh /start.sh
