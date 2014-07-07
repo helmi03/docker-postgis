@@ -21,7 +21,7 @@ To connect to database, use docker inspect CONTAINER and grep IPAddress, e.g.
 
 ```
 CONTAINER=$(sudo docker run -d -t helmi03/postgis)
-CONTAINER_IP=$(sudo docker inspect $CONTAINER | grep IPAddress | awk '{ print $2 }' | tr -d ',"')
+CONTAINER_IP=$(sudo docker inspect -f '{{ .NetworkSettings.IPAddress }}' $CONTAINER)
 psql -h $CONTAINER_IP -p 5432 -U docker -W postgres
 ```
 
