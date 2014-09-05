@@ -1,5 +1,5 @@
 FROM ubuntu:trusty
-MAINTAINER Helmi <helmi@tuxuri.com>
+MAINTAINER Helmi Ibrahim <helmi@tuxuri.com>
 
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
 RUN apt-get -y update
