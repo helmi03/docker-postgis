@@ -46,6 +46,6 @@ Build with docker version `0.7.0`
 
 ## References
 
-- Docker trusted build: [helmi03/docker-postgis](https://index.docker.io/u/helmi03/docker-postgis/)
+- Docker trusted build: [helmi03/docker-postgis](https://registry.hub.docker.com/u/helmi03/docker-postgis/)
 - [stigi/dockerfile-postgresql](https://github.com/stigi/dockerfile-postgresql)
 - [Docker PostgreSQL Service](http://docs.docker.io/en/latest/examples/postgresql_service/)
