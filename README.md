@@ -19,7 +19,7 @@ This Dockerfile creates a container running PostGIS 2.1 in PostgreSQL 9.3
 
 To connect to database, use docker inspect CONTAINER and grep IPAddress, e.g.
 
-```
+```bash
 CONTAINER=$(sudo docker run -d -t helmi03/postgis)
 CONTAINER_IP=$(sudo docker inspect -f '{{ .NetworkSettings.IPAddress }}' $CONTAINER)
 psql -h $CONTAINER_IP -p 5432 -U docker -W postgres
@@ -30,7 +30,9 @@ psql -h $CONTAINER_IP -p 5432 -U docker -W postgres
 
 You can mount the database directory as a volume to persist your data:
 
-`docker run -d -v $HOME/postgres_data:/var/lib/postgresql postgis:2.1`
+```bash
+docker run -d -v $HOME/postgres_data:/var/lib/postgresql postgis:2.1
+```
 
 Makes sure first need to create source folder: `mkdir -p ~HOME/postgres_data`.
 
