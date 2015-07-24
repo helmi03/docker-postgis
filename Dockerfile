@@ -1,6 +1,7 @@
 FROM ubuntu:trusty
 MAINTAINER Helmi Ibrahim <helmi@tuxuri.com>
 
+RUN hostname
 RUN apt-get -y install software-properties-common
 RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
@@ -13,6 +14,10 @@ RUN apt-get -y upgrade
 RUN locale-gen --no-purge en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 RUN update-locale LANG=en_US.UTF-8
+RUN echo "___INSTALLED PACKAGES___BEFORE___"
+RUN dpkg -s libgdal1h
+RUN aptitude install libgdal1h
+RUN echo "___INSTALLED PACKAGES___AFTER___"
 RUN apt-get -y install postgresql-9.3 postgresql-contrib-9.3 postgresql-9.3-postgis-2.1 postgis postgresql-9.3-postgis-scripts
 RUN echo "host    all             all             0.0.0.0/0               trust" >> /etc/postgresql/9.3/main/pg_hba.conf
 
