@@ -1,7 +1,7 @@
 FROM ubuntu:trusty
 MAINTAINER Helmi Ibrahim <helmi@tuxuri.com>
 
-RUN apt-get -y install software-properties-common python-software-properties
+RUN apt-get -y install software-properties-common
 RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
 RUN apt-get -y update
